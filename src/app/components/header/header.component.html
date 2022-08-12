@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand navbar-light ">
+  <div class="navbar-collapse justify-content-between">
+
+    <div class="d-flex">
+      <div class="nav-item expand">
+        <a class="nav-link" href="#">
+          <fa-icon class="fa-lg m-1" [icon]="faGripLines"></fa-icon>
+        </a>
+      </div>
+      <div class="nav-item active">
+        <a class="nav-link" href="#">
+          <fa-icon class="fa-lg m-1" [icon]="faHouse"></fa-icon>
+        </a>
+      </div>
+      <form class="search-form d-flex my-2 my-lg-0">
+        <input class="search form-control" type="search" placeholder="Search" aria-label="Search">
+        <fa-icon class="m-1 fa-magnifying-glass" [icon]="faMagnifyingGlass"></fa-icon>
+      </form>
+    </div>
+    <div class="d-flex">
+      <div class="nav-item add-new">
+        <a class="nav-link" href="#" role="button">
+          <fa-icon class="fa-lg m-1" [icon]="faPlus"></fa-icon>
+          <i class="  fa-plus fa-xl"></i>
+        </a>
+      </div>
+
+      <div class="nav-item ">
+        <a class="nav-link" href="#" role="button">
+          <fa-icon class="fa-lg m-1 fa-circle" [icon]="faCircle"></fa-icon>
+          <i class="fa-regular fa-circle fa-lg"></i>
+          <span class="tasks">
+            <span class="no-of-completed">3</span>/10
+          </span>
+        </a>
+      </div>
+
+      <div class="nav-item ">
+        <a class="nav-link" href="#" role="button">
+          <fa-icon class="fa-lg m-1 " [icon]="faCircleQuestion"></fa-icon>
+          <i class="fa-regular fa-circle-question fa-lg"></i>
+        </a>
+      </div>
+
+      <div class="nav-item">
+        <a class="nav-link " href="#">
+
+          <i class="fa-regular fa-bell fa-lg"></i></a>
+      </div>
+    </div>
+  </div>
+</nav>
