@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   faGripLines,
   faHouseChimney,
@@ -11,6 +11,8 @@ import {
   faCircleQuestion,
   faBell,
 } from '@fortawesome/free-regular-svg-icons';
+import { SidenavService } from '../main/sidenav.service';
+import { DoneService } from 'src/app/shared-services/done.service';
 
 @Component({
   selector: 'app-header',
@@ -25,7 +27,23 @@ export class HeaderComponent implements OnInit {
   faCircle = faCircle;
   faCircleQuestion = faCircleQuestion;
   faBell = faBell;
-  constructor() {}
+  tasksDone = this.noOfDone;
 
-  ngOnInit(): void {}
+  constructor(
+    private sideNav: SidenavService,
+    private DoneService: DoneService
+  ) {}
+
+  ngOnInit(): void {
+    this.DoneService.numberOfDone.subscribe((value) => {
+      this.tasksDone = value;
+    });
+  }
+  onClick() {
+    this.sideNav.toggle();
+  }
+  
+  get noOfDone(): number {
+    return this.DoneService.number;
+  }
 }

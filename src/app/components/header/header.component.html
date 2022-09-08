@@ -1,14 +1,14 @@
 <nav class="navbar navbar-expand navbar-light ">
   <div class="navbar-collapse justify-content-between">
 
-    <div class="d-flex">
+    <div class="d-flex align-items-center">
       <div class="nav-item expand">
-        <a class="nav-link" href="#">
+        <a class="nav-link" (click)="onClick()">
           <fa-icon class="fa-lg m-1" [icon]="faGripLines"></fa-icon>
         </a>
       </div>
       <div class="nav-item active">
-        <a class="nav-link" href="#">
+        <a class="nav-link" router>
           <fa-icon class="fa-lg m-1" [icon]="faHouse"></fa-icon>
         </a>
       </div>
@@ -30,7 +30,7 @@
           <fa-icon class="fa-lg m-1 fa-circle" [icon]="faCircle"></fa-icon>
           <i class="fa-regular fa-circle fa-lg"></i>
           <span class="tasks">
-            <span class="no-of-completed">3</span>/10
+            <span class="no-of-completed">{{tasksDone}}</span>/10
           </span>
         </a>
       </div>
@@ -44,7 +44,6 @@
 
       <div class="nav-item">
         <a class="nav-link " href="#">
-
           <i class="fa-regular fa-bell fa-lg"></i></a>
       </div>
     </div>

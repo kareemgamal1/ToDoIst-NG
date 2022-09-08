@@ -1,27 +1,61 @@
 <div class="main">
-  <h2>Inbox</h2>
+  <h2 class="mb-4">Inbox</h2>
   <div class="inbox-page ">
-    <div class="sections gap-5">
-      <div>
-        <div class="section-name">(No section)<span class="noOfTasks"> 1</span></div>
-        <div class="tasks-list">
-          <div class="task">
-            <button class="done"></button>
-            <div class="task-name">Text All My Bitches</div>
-            <button class="actions">
-              <i class="fa-solid fa-ellipsis"></i>
-            </button>
+    <div *ngFor="let section of taskSections; let i = index; trackBy: trackByFn"
+      class="sections gap-5 ">
+      <div class="cont">
+
+        <div class="section-name mb-1">{{section.name}}
+          <span class="noOfTasks">{{section.noOfTasks}}</span>
+        </div>
+
+        <div *ngFor="let task of section.tasks;let j = index; trackBy: trackByFn"
+          class="tasks-list">
+          <div class="task d-flex justify-content-between align-items-center flex-column">
+            <div class="actions d-flex align-items-center gap-2">
+              <button class="done" (click)="onDone(i,j)"></button>
+              <div class="task-name">
+                {{task.name}}</div>
+            </div>
+            <div class="task-date d-flex justify-content-center">
+              <input type="date" class="date-picker" name="taskDate" [(ngModel)]="task.date">
+              <p>{{task.date}}</p>
+            </div>
           </div>
         </div>
+
+        <button *ngIf="!aboutToAddTask[i]" (click)="clickedIndex=i" (click)="toggleTask(i)"
+          class=" add-task primary-btn btn mb-5">
+          <fa-icon class="fa-lg m-1" [icon]="faPlus"></fa-icon>
+          Add task
+        </button>
+        <form *ngIf="aboutToAddTask[i]&&clickedIndex===i" class="new-task " action="">
+          <input [(ngModel)]="taskName" name="taskName" placeholder="Task Name"
+            [ngModelOptions]="{standalone: true}" type="text" class="add-task-name">
+          <input type="date" name="taskDate" placeholder="Task Deadline" onfocus="this.type='date'"
+            [(ngModel)]="taskDate">
+          <div class="d-flex pt-2">
+            <button (click)="onTaskAdd(i)" class="add btn btn-outline-dark me-1">Add</button>
+            <button type="submit" (click)="toggleTask(i)"
+              class="cancel-add btn btn-outline-dark">Cancel</button>
+          </div>
+        </form>
+
       </div>
     </div>
-    <button class="add-sections h-50 btn btn-outline-dark">Add section</button>
-    <form action=""></form>
-    <form class="new-section d-none" action="">
-      <input type="text" class="add-section-name">
+
+    <button *ngIf="!aboutToAddSection" (click)="toggleSection()" class="add-sections h-50 btn">
+      <fa-icon class="fa-lg m-1" [icon]="faPlus"></fa-icon>
+      Add section
+    </button>
+
+    <form *ngIf="aboutToAddSection" class="new-section " action="">
+      <input [(ngModel)]="sectionName" name="sectionName" [ngModelOptions]="{standalone: true}"
+        type="text" class="add-section-name">
       <div class="d-flex pt-2">
-        <button class="add btn btn-outline-dark me-1">Add</button>
-        <button type="submit" class="cencel-add btn btn-outline-dark">Cancel</button>
+        <button (click)="onSectionAdd()" class=" add btn btn-outline-dark me-1">Add</button>
+        <button type="submit" (click)="toggleSection()"
+          class="cancel-add btn btn-outline-dark">Cancel</button>
       </div>
     </form>
   </div>

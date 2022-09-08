@@ -1,21 +1,31 @@
-<div class="sidenav d-none">
-  <div class="side-button inbox pt-4">
-    <a href="#">
-      <fa-icon class="fa-lg m-1 fa-inbox" [icon]="faInbox"></fa-icon>
-      <span>Inbox</span>
-    </a>
-  </div>
-  <div class="side-button today">
-    <a href="#">
-      <fa-icon class="fa-lg m-1 fa-calendar" [icon]="faCalendar"></fa-icon>
-      <span> Today</span>
-    </a>
-  </div>
-  <div class="side-button upcoming">
-    <a href="#">
-      <fa-icon class="fa-lg m-1 fa-calendar-days" [icon]="faCalendarDays"></fa-icon>
-      <span> Upcoming</span>
-    </a>
-  </div>
-  <div class="projects"></div>
-</div>
+<ul class="top-menu list-group">
+    <li class="side-button inbox pt-4">
+        <a [routerLink]="['inbox']"
+            class="container d-flex justify-content-between p-1 me-4 ms-4 w-100">
+            <div class="icon-holder">
+                <fa-icon class="fa-lg m-1 fa-inbox" [icon]="faInbox"></fa-icon>
+                <span>Inbox</span>
+            </div>
+            <div class="tasks">3</div>
+        </a>
+    </li>
+    <li class="side-button today">
+        <a class="container d-flex justify-content-between p-1  me-4 ms-4 w-100">
+            <div class="icon-holder">
+                <fa-icon class="fa-lg m-1 fa-calendar" [icon]="faCalendar"></fa-icon>
+                <span> Today</span>
+            </div>
+            <div class="tasks">3</div>
+        </a>
+    </li>
+    <li class="side-button upcoming">
+        <a class="container d-flex justify-content-between p-1 me-4 ms-4 w-100">
+            <div class="icon-holder">
+                <fa-icon class="fa-lg m-1 fa-calendar-days" [icon]="faCalendarDays"></fa-icon>
+                <span> Upcoming</span>
+            </div>
+            <div class="tasks">3</div>
+        </a>
+    </li>
+    <li class="projects"></li>
+</ul>
